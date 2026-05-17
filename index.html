@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Manager - CRUD System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+      <h1>📦 Product Manager</h1>
+      <p>Manage your products efficiently</p>
+  </div>
+
+  <div class="form-section">
+    <h2 class="section-title">Add Product</h2>
+    <form class="form">
+      <div class="form-group">
+        <input type="text" placeholder="Product Name" id="title" class="form-input required-field" required>
+        <span class="required-mark">*</span>
+      </div>
+
+      <div class="price-grid">
+        <div class="form-group">
+          <input onkeyup="getTotal()" type="number" placeholder="Price" id="price" class="form-input required-field" required>
+          <span class="required-mark">*</span>
+        </div>
+        <div class="form-group">
+          <input onkeyup="getTotal()" type="number" placeholder="Taxes" id="taxes" class="form-input">
+        </div>
+        <div class="form-group">
+          <input onkeyup="getTotal()" type="number" placeholder="Ads" id="ads" class="form-input">
+        </div>
+        <div class="form-group">
+          <input onkeyup="getTotal()" type="number" placeholder="Discount" id="discount" class="form-input">
+        </div>
+      </div>
+
+      <div class="total-display" id="total"></div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <input type="number" placeholder="Count" id="count" class="form-input">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Category" id="category" class="form-input required-field" required>
+          <span class="required-mark">*</span>
+        </div>
+      </div>
+
+      <button type="button" id="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+
+  <div class="data-section">
+    <h2 class="section-title">Products</h2>
+    
+    <div class="search-section">
+      <input onkeyup="searchData(this.value)" type="text" placeholder="Search products..." id="search" class="search-input">
+      <div class="search-buttons">
+        <button onclick="getSearchMood(this.id)" id="searchTitle" class="btn btn-secondary btn-small">By Title</button>
+        <button onclick="getSearchMood(this.id)" id="searchCategory" class="btn btn-secondary btn-small">By Category</button>
+      </div>
+    </div>
+
+    <div class="action-bar" id="deletAll"></div>
+
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Taxes</th>
+            <th>Ads</th>
+            <th>Discount</th>
+            <th>Total</th>
+            <th>Category</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="project.js"></script>
+</body>
+</html>
